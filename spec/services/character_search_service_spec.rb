@@ -18,12 +18,30 @@ RSpec.describe CharactersSearchService do
     end
   end
 
-  describe '#nation_query' do
+  describe '#nation_query_25' do
     it 'returns a nested hash of character data' do
-      expect(@service.nation_query('Fire Nation')).to be_a(Array)
-      expect(@service.nation_query('Fire Nation')[0]).to be_a(Hash)
+      expect(@service.nation_query_25('Fire Nation')).to be_a(Array)
+      expect(@service.nation_query_25('Fire Nation')[0]).to be_a(Hash)
 
-      characters = @service.nation_query('Fire Nation')
+      characters = @service.nation_query_25('Fire Nation')
+
+      characters.each do |character|
+        expect(character).to have_key(:_id)
+        expect(character).to have_key(:name)
+        # expect(character).to have_key(:photoUrl) some entries not returning key
+        expect(character).to have_key(:allies)
+        expect(character).to have_key(:enemies)
+        expect(character).to have_key(:affiliation)
+      end
+    end
+  end
+
+  describe '#nation_query_full' do
+    it 'returns a nested hash of character data' do
+      expect(@service.nation_query_full('Fire Nation')).to be_a(Array)
+      expect(@service.nation_query_full('Fire Nation')[0]).to be_a(Hash)
+
+      characters = @service.nation_query_full('Fire Nation')
 
       characters.each do |character|
         expect(character).to have_key(:_id)

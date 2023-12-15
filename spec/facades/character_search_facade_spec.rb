@@ -18,4 +18,8 @@ RSpec.describe CharactersSearchFacade, type: :facade do
       expect(character).to respond_to(:affiliation)
     end
   end
+
+  it '#nation_characters_count' do
+    expect(@facade.nation_characters_count('Fire Nation')).to be_a(Integer)
+  end
 end
