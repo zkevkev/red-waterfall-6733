@@ -1,0 +1,29 @@
+<% @characters.each do |character| %>
+  <h4><%= character.name %></h4>
+  <% if character.image.present? %>
+    <div>
+      <%= image_tag(character.image) %>
+    </div>
+  <% end %>
+  <section>
+    Allies:
+    <% if character.allies.present? %>
+      <% character.allies.each do |ally| %>
+        <%= ally %>, 
+      <% end %>
+    <% else %>
+      None
+    <% end %>
+  </section>
+  <section>
+    Enemies: 
+    <% if character.enemies.present? %>
+      <% character.enemies.each do |enemy| %>
+        <%= enemy %>, 
+      <% end %>
+    <% else %>
+      None
+    <% end %>
+  </section>
+  <p><%= character.affiliation %></p>
+<% end %>

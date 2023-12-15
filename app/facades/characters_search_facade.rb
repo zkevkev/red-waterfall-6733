@@ -6,4 +6,9 @@ class CharactersSearchFacade
       Character.new(character_data)
     end
   end
+
+  def nation_characters_count
+    # remove limit from service or build to another service method
+    # call nation_characters(nation).count to get total number of characters
+  end
 end

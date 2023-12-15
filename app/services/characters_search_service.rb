@@ -10,6 +10,6 @@ class CharactersSearchService
   
   def nation_query(nation)
     nation = nation.gsub(' ', '+')
-    get_url("v1/characters?affiliation=#{nation}")
+    get_url("v1/characters?affiliation=#{nation}&perPage=25&page=1")
   end
 end
