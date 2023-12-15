@@ -1,10 +1,14 @@
+<h3>Total Members: <%= @character_count %></h3>
+
 <% @characters.each do |character| %>
   <h4><%= character.name %></h4>
+
   <% if character.image.present? %>
     <div>
       <%= image_tag(character.image) %>
     </div>
   <% end %>
+
   <section>
     Allies:
     <% if character.allies.present? %>
@@ -15,6 +19,7 @@
       None
     <% end %>
   </section>
+
   <section>
     Enemies: 
     <% if character.enemies.present? %>
@@ -25,5 +30,6 @@
       None
     <% end %>
   </section>
-  <p><%= character.affiliation %></p>
+
+  <p>Affiliations: <%= character.affiliation %></p>
 <% end %>
