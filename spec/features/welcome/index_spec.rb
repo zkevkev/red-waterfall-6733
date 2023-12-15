@@ -10,7 +10,7 @@ RSpec.describe 'Welcome Index Page', type: :feature do
 
       expect(current_path).to eq(search_path)
       # get members count from pry data (or fixture)
-      expect(page).to have_content('Members: ')
+      expect(page).to have_content('Total Members: ')
       expect(page).to have_content('Name: ', count: 25)
       within('#5cf5679a915ecad153ab68da-Azula') do
         expect(page).to have_content('Name: Azula')
