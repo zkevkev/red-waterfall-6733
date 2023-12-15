@@ -1,35 +1,37 @@
 <h3>Total Members: <%= @character_count %></h3>
 
 <% @characters.each do |character| %>
-  <h4><%= character.name %></h4>
+  <section id=<%= "#{character.id}-#{character.name}" %>>
+    <h4><%= character.name %></h4>
 
-  <% if character.image.present? %>
-    <div>
-      <%= image_tag(character.image) %>
-    </div>
-  <% end %>
-
-  <section>
-    Allies:
-    <% if character.allies.present? %>
-      <% character.allies.each do |ally| %>
-        <%= ally %>, 
-      <% end %>
-    <% else %>
-      None
+    <% if character.image != nil %>
+      <div>
+        <%= image_tag(character.image) %>
+      </div>
     <% end %>
-  </section>
 
-  <section>
-    Enemies: 
-    <% if character.enemies.present? %>
-      <% character.enemies.each do |enemy| %>
-        <%= enemy %>, 
+    <section>
+      Allies:
+      <% if character.allies.present? %>
+        <% character.allies.each do |ally| %>
+          <%= ally %>, 
+        <% end %>
+      <% else %>
+        None
       <% end %>
-    <% else %>
-      None
-    <% end %>
-  </section>
+    </section>
 
-  <p>Affiliations: <%= character.affiliation %></p>
+    <section>
+      Enemies: 
+      <% if character.enemies.present? %>
+        <% character.enemies.each do |enemy| %>
+          <%= enemy %>, 
+        <% end %>
+      <% else %>
+        None
+      <% end %>
+    </section>
+
+    <p>Affiliations: <%= character.affiliation %></p>
+  </section>
 <% end %>
